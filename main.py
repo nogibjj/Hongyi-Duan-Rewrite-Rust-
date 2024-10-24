@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import time
 
 def get_mean(x):
     mean = 0
@@ -23,10 +23,20 @@ def get_std(x):
     std = (std / (len(x) - 1))**0.5
     return std
     
-def get_plot(x):
-    plt.plot(x)
-    plt.title(x.name)
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    plt.show()
-    
+x = [i for i in range(1, 1000000)]
+
+start = time.time()
+get_mean(x)
+end = time.time()
+print(f"Time taken for mean calculation: {10**6*(end - start)} microseconds")
+
+start = time.time()
+get_median(x)
+end = time.time()
+print(f"Time taken for median calculation: {10**6*(end - start)} microseconds")
+
+start = time.time()
+get_std(x)
+end = time.time()
+print(f"Time taken for standard deviation calculation: {10**6*(end - start)} microseconds")
+

@@ -1,0 +1,13 @@
+[package]
+name = "data_processing_rust"  
+version = "0.1.0"              
+edition = "2021"               
+
+[lib]
+name = "data_processing_rust"  
+path = "src/lib.rs"            
+
+[[bin]]
+name = "data_processing_bin"   
+path = "src/main.rs"           
+
