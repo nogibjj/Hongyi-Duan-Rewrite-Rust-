@@ -1,17 +1,21 @@
-from main import *
+import unittest
+from main import get_mean, get_median, get_std
 import numpy as np
 
-def test_mean():
-    assert round(get_mean(x), 5) == round(np.mean(x), 5)
-
-def test_median():
-    assert round(get_median(x), 5) == round(np.median(x), 5)
-
-def test_std():
-    assert round(get_std(x), 5) == round(np.std(x, ddof=1), 5)
+class TestStatisticsFunctions(unittest.TestCase):
+    
+    def setUp(self):
+        self.x = [i for i in range(1, 1000000)]
+    
+    def test_mean(self):
+        self.assertAlmostEqual(get_mean(self.x), np.mean(self.x), places=5)
+    
+    def test_median(self):
+        self.assertAlmostEqual(get_median(self.x), np.median(self.x), places=5)
+    
+    def test_std(self):
+        self.assertAlmostEqual(get_std(self.x), np.std(self.x, ddof=1), places=5)
 
 if __name__ == "__main__":
-    test_mean()
-    test_median()
-    test_std()
+    unittest.main()
 
