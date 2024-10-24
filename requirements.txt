@@ -1,0 +1,8 @@
+pylint
+pytest
+click
+black
+pytest-cov
+matplotlib
+pandas
+openpyxl
